@@ -1,4 +1,5 @@
-# Arquivo principal do programa que permite ao programa ser # executado
-# diretamente. [python -m dundie] 
-def main():
-    print("Executing entry point for dundie...")
+from dundie.cli import main
+
+
+if __name__ == '__main__':
+    main()
