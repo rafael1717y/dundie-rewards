@@ -28,6 +28,7 @@ setup(
     long_description=read("README.md"),
     long_description_content_type="texto/markdown",
     author="Rafael Gomes",
+    python_requires=">=3.8",
     packages=find_packages(), 
     entry_points= {
     "console_scripts": [
