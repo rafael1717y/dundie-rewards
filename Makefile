@@ -1,4 +1,4 @@
-.PHONY: install virtualenv ipython clean
+.PHONY: install virtualenv ipython clean pflake8
 
 
 install:
@@ -13,7 +13,13 @@ virtualenv:
 ipython:
 	@.venv/bin/python
 
+lint:
+	@.venv/bin/pflake8
 
+fmt:
+	@.venv/bin/isort dundie tests integration
+	@.venv/bin/black dundie tests integration
+	
 test:
 	# @.venv/bin/ptw
 	@.venv/bin/pytest -s 
