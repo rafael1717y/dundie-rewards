@@ -1,6 +1,6 @@
 import os
 import uuid
-import pytest 
+import pytest
 from dundie.core import load
 from .constants import PEOPLE_FILE
 
@@ -16,4 +16,4 @@ def test_load_positive_has_2_people(request):
 @pytest.mark.high
 def test_load_positive_has_first_name_starts_with_j(request):
     """Teste load function"""
-    assert load(PEOPLE_FILE)[0][0] == 'J'
+    assert load(PEOPLE_FILE)[0][0] == "J"

@@ -1,6 +1,3 @@
-from pickle import MARK
-
-
 MARKER = """\
 unit: Mark unit tests
 integration: Mark integration tests
