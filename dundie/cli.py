@@ -36,6 +36,7 @@ def load(filepath):
 
     table = Table(title="Dunder Mifflin Associates")
     headers = ["name", "departament", "role", "created", "email"]
+
     for header in headers:
         table.add_column(header, style="green")
 
