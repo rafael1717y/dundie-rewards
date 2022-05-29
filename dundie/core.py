@@ -37,3 +37,36 @@ def load(filepath):
 
     commit(db)
     return people
+
+
+# query recebe um email ou dept
+def read(**query):
+    """Read data from db and filers using query.
+    red(email="joe@doe.com")
+    """
+    db = connect()
+    return_data = []
+    for pk, data in db["people"].items():
+
+        # a partir do python 3.8
+        dept = query.get("dept")
+        if dept and dept != data["dept"]:
+            continue
+
+        # Walrus / assignment expression - a partir do python 3.8
+        if (email := query.get("email")) and email != pk:
+            continue
+
+        return_data.append(
+            {
+                "email": pk,
+                "balance": db["balance"][pk],
+                "last_movement": db["movement"][pk][-1]["date"],
+                **data,
+            }
+        )
+    return return_data
+
+
+def add(value, **query):
+    """Add value to each record on query."""
