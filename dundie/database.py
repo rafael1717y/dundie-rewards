@@ -5,9 +5,6 @@ from dundie.settings import DATABASE_PATH, EMAIL_FROM
 from dundie.utils.email import check_valid_email, send_email
 from dundie.utils.user import generate_simple_password
 
-from dundie.settings import DATABASE_PATH
-
-
 EMPTY_DB = {"people": {}, "balance": {}, "movement": {}, "users": {}}
 
 
@@ -19,6 +16,7 @@ def connect() -> dict:
             return json.loads(database_file.read())
     except (json.JSONDecodeError, FileNotFoundError):
         return EMPTY_DB
+
 
 def commit(db):
     """Save db back to the database file."""
@@ -71,4 +69,3 @@ def add_movement(db, pk, value, actor="system"):
         {"date": datetime.now().isoformat(), "actor": actor, "value": value}
     )
     db["balance"][pk] = sum([item["value"] for item in movements])
-
