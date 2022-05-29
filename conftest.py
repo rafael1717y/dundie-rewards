@@ -1,4 +1,6 @@
 import pytest
+from unittest.mock import patch
+
 
 MARKER = """\
 unit: Mark unit tests
@@ -21,3 +23,13 @@ def go_to_tmpdir(request):  # injeção de dependências
     )  # reutilizar o diretório temporário do pytest
     with tmpdir.as_cwd():  # mudando o diretório para o pytest usar esse gerenciador de contexto
         yield  # protocolo de generators
+
+
+@pytest.fixture(autouse=True, scope="function")
+def setup_testing_database(request):
+    """For each test, create a database file on tmpdir
+    force database.py to use that filepath."""
+    tmpdir = request.getfixturevalue("tmpdir")
+    test_db = str(tmpdir.join("database.test.json"))
+    with patch("dundie.database.DATABASE_PATH", test_db):
+        yield

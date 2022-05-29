@@ -1,0 +1,58 @@
+{
+    "people": {
+        "jim@dundlermifflin.com": {
+            "name": "Jim Halpert",
+            "dept": "Sales",
+            "role": "Salesman"
+        },
+        "schrute@dundlermifflin.com": {
+            "name": "Dwight Schrute",
+            "dept": "Sales",
+            "role": "Manager"
+        },
+        "glwwi@dundlermifflin.com": {
+            "name": "Gabe Lewis",
+            "dept": "C-Level",
+            "role": "Manager"
+        }
+    },
+    "balance": {
+        "jim@dundlermifflin.com": 500,
+        "schrute@dundlermifflin.com": 100,
+        "glwwi@dundlermifflin.com": 100
+    },
+    "movement": {
+        "jim@dundlermifflin.com": [
+            {
+                "date": "2022-05-29T16:27:33.623703",
+                "actor": "system",
+                "value": 500
+            }
+        ],
+        "schrute@dundlermifflin.com": [
+            {
+                "date": "2022-05-29T16:27:33.628346",
+                "actor": "system",
+                "value": 100
+            }
+        ],
+        "glwwi@dundlermifflin.com": [
+            {
+                "date": "2022-05-29T16:28:45.601610",
+                "actor": "system",
+                "value": 100
+            }
+        ]
+    },
+    "users": {
+        "jim@dundlermifflin.com": {
+            "password": "qHP3epFk"
+        },
+        "schrute@dundlermifflin.com": {
+            "password": "lvxmZ7Rd"
+        },
+        "glwwi@dundlermifflin.com": {
+            "password": "qTxes293"
+        }
+    }
+}
