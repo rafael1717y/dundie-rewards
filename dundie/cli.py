@@ -2,6 +2,7 @@ import pkg_resources
 import rich_click as click
 from rich.console import Console
 from rich.table import Table
+
 from dundie import core
 
 click.rich_click.USE_RICH_MARKUP = True
