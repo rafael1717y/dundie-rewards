@@ -1,4 +1,3 @@
-"""
 import pytest
 
 from dundie.core import read
@@ -31,4 +30,3 @@ def test_read_with_query():
     response = read(email="joe@doe.com")
     assert len(response) == 1
     assert response[0]["name"] == "Joe Doe"
-"""
