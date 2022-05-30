@@ -1,3 +1,5 @@
+import json
+
 import pkg_resources
 import rich_click as click
 from rich.console import Console
@@ -51,8 +53,13 @@ def load(filepath):
 @main.command()
 @click.option("--dept", required=False)
 @click.option("--email", required=False)
-def show(**query):
+@click.option("--output", default=None)
+def show(output, **query):
+    "Shows information about users."
     result = core.read(**query)
+    if output:
+        with open(output, "w") as output_file:
+            output_file.write(json.dumps(result))
 
     if not result:
         print("Nothing to show.")
@@ -66,3 +73,24 @@ def show(**query):
 
     console = Console()
     console.print(table)
+
+
+@main.command()
+@click.argument("value", type=click.INT, required=True)
+@click.option("--dept", required=False)
+@click.option("--email", required=False)
+@click.pass_context
+def add(ctx, value, **query):
+    """Add points to the user or dept"""
+    core.add(value, **query)
+    ctx.invoke(show, **query)  # para encadear comandos
+
+
+@main.command()
+@click.argument("value", type=click.INT, required=True)
+@click.option("--dept", required=False)
+@click.option("--email", required=False)
+@click.pass_context
+def remove(ctx, value, **query):
+    core.add(-value, **query)
+    ctx.invoke(show, **query)
