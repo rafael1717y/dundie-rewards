@@ -22,10 +22,10 @@ fmt:
 	
 test:
 	# @.venv/bin/ptw
-	@.venv/bin/pytest -s 
+	@.venv/bin/pytest -s --forked
 
 watch:
-	@ls **/*.py | entr pytest
+	@ls **/*.py | entr pytest --forked
 
 clean: ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;
