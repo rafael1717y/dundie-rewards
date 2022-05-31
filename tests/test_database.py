@@ -19,6 +19,7 @@ def test_commit_to_database():
     db = connect()
     assert db["people"]["joe@doe.com"] == data
 
+
 """
 @pytest.mark.unit
 def test_add_person_for_the_first_time():
