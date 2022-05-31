@@ -1,4 +1,4 @@
-# Projetodundie-rewards
+# Projeto dundie-rewards
 
 [![CI](https://github.com/rafael1717y/dundie-rewards/actions/workflows/main.yml/badge.svg)](https://github.com/rafael1717y/dundie-rewards/actions/workflows/main.yml)
 

@@ -1,3 +1,6 @@
+"""Setup for dundie.
+"""
+
 from setuptools import find_packages, setup
 import os
 
@@ -24,14 +27,20 @@ def read_requirements(path):
 
 setup(
     name="dundie",
-    version="0.1.0",  # Semantic Versioning
+    version="0.1.1",
+    # Semantic Versioning
+    # Major.Minor.Patch
+    # X.Y.Z [razões mudar x -> quebra de compatibilidade ou marketing]
+    # Y -> adicionar funcionalidade mas manter compatibilidade
     description="Reward Point System for Dunder Mifflin",
     long_description=read("README.md"),
-    long_description_content_type="texto/markdown",
+    long_description_content_type="text/markdown",
     author="Rafael Gomes",
     python_requires=">=3.8",
-    packages=find_packages(),
-    entry_points={"console_scripts": ["dundie = dundie.__main__:main"]},
+    packages=find_packages(exclude=['integration']),
+    include_package_data=True,
+    entry_points={
+        "console_scripts": ["dundie = dundie.__main__:main"]},
     install_requires=read_requirements("requirements.txt"),
     extras_require={
         "test": read_requirements("requirements.test.txt"),
