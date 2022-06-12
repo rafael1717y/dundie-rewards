@@ -27,6 +27,7 @@ def commit(db):
         database_file.write(json.dumps(db, indent=4))
 
 
+# SOLID - Single Responsability
 def add_person(db, pk, data):
     """Saves person data to database.
     - Email is unique (resolved by dictionary hash table)

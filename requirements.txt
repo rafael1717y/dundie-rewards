@@ -4,3 +4,4 @@ pudb
 click
 rich
 rich-click
+pydantic
