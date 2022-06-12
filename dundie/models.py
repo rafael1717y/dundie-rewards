@@ -1,6 +1,8 @@
 from datetime import datetime
 from decimal import Decimal
+
 from pydantic import BaseModel, validator
+
 from dundie.utils.email import check_valid_email
 
 
